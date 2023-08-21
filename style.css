@@ -1,3 +1,11 @@
+:root {
+  --borderRadius: 0.5rem;
+  --width: 10rem;
+  --height: 8rem;
+  --bgColor: #52796f;
+  --mainColor: #83aa8c;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -6,19 +14,36 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--mainColor);
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
+}
 
-  background: #fff;
+.allin {
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  column-gap: 6px;
+  row-gap: 13px;
+}
+
+.flip-card,
+.img,
+.box {
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--borderRadius);
 }
 
 .flip-card {
   background-color: transparent;
-  width: 150px;
-  height: 150px;
   perspective: 1000px;
+}
+
+.img {
+  object-fit: cover;
 }
 
 .flip-card-inner {
@@ -30,7 +55,6 @@ body {
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transform: rotateY(180deg);
-  border-radius: 10px;
 }
 
 .card-flipped .flip-card-inner {
@@ -51,37 +75,23 @@ body {
 }
 
 .flip-card-back {
-  background: linear-gradient(to right, #093028, #237a57);
-  /* background: linear-gradient(to right, #eaafc8, #654ea3); */
-
-  border-radius: 10px;
+  background-color: var(--bgColor);
+  border-radius: var(--borderRadius);
   transform: rotateY(180deg);
-}
-
-.allin {
-  max-width: 900px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 10px;
-}
-
-img {
-  border-radius: 10px;
-  object-fit: cover;
 }
 
 .memoryPoint {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 50px;
+  margin-bottom: 20px;
 }
 
 .scoreBox,
 .attemptBox {
-  width: 100px;
-  height: 100px;
-  background: #093028;
-  border-radius: 10px;
+  height: 5rem;
+  background: var(--bgColor);
   text-align: center;
   display: flex;
   align-items: center;
